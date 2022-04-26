@@ -42,6 +42,7 @@ function play() {
 
     chances --;
     chanceArea.textContent=`남은기회: ${chances}번`;
+    console.log(chances);
 
 
     if(userValue<1 || userValue > 100) {
@@ -63,9 +64,8 @@ function play() {
 
     if(chances<1) {
         gameOver=true;
-    }
-    if(gameOver==true){
-        playButton.disabled = true
+        playButton.disabled = true;
+
     }
 
 }
@@ -75,11 +75,11 @@ function reset(){
     userInput.value = ""
     // 새로운 번호 생성
     pickRandomNum();
+    resultArea.textContent="리셋되었습니다!";
     chances = 5;
     chanceArea.textContent=`남은기회: ${chances}번`;
-
-
-    resultArea.textContent="결과값이 여기 나온다!";
+    playButton.disabled=false;
+    history.length=0;
 
 }
 pickRandomNum();
